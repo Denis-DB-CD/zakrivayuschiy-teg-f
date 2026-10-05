@@ -12,8 +12,246 @@
 
 .page {
   font-family: var(--main-font), sans-serif;
-  font-weight: 400;
+  font-weight: var(--font-text-weight);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image: var(--page-background);
   background-size: cover;
+}
+
+.container {
+  inline-size: var(--container-width);
+  margin-inline: auto;
+  max-inline-size: 100%;
+}
+
+.header {
+  margin: 100px 0;
+  border: 2px solid rgba(0, 0, 0, 1);
+  font-family: var(--accent-font);
+  margin-inline: auto;
+  padding: 122px 0;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__logo {
+  font-size: clamp(49px, 4.5vw, 65px);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.header__title {
+  font-weight: 400;
+  font-size: clamp(14px, 1.3vw, 23px);
+  text-transform: uppercase;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__card {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  border: 2px solid rgba(0, 0, 0, 1);
+  background-color: var(--bg-color);
+  margin-bottom: 51px;
+}
+
+.main__card-title {
+  font-family: "Inter-Variable", sans-serif;
+  font-weight: var(--font-title-weight);
+  font-size: 18px;
+  margin: 4px 10px;
+}
+
+.main__card-image-wrapper {
+  position: relative;
+  inline-size: 100%;
+}
+
+.main__card-image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  mix-blend-mode: hard-light;
+  font-size: var(--like-font-size);
+  text-transform: uppercase;
+  text-shadow:
+    1px 1px 0 var(--label-color),
+    -1px 1px 0 var(--label-color),
+    1px -1px 0 var(--label-color),
+    -1px -1px 0 var(--label-color);
+  background-color: transparent;
+}
+
+@supports (-webkit-text-stroke: 1px var(--label-color)) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--label-color);
+    text-stroke: 1px var(--label-color);
+  }
+}
+.main__card-content-text {
+  display: flex;
+  padding: 21px 25px 25px 25px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__text {
+  font-family: var(--main-font), sans-serif;
+  font-weight: 410;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0%;
+}
+
+.button {
+  transition: outline 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.main__card-content-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 25px;
+  gap: 7px;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 1);
+  margin-bottom: 25px;
+}
+
+.card__icon-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  margin-bottom: 25px;
+  transition: border-color 0.3s ease;
+}
+
+.save__button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 17px 20px;
+  margin-bottom: 100px;
+}
+
+.save__floppy {
+  fill: #fff;
+  mix-blend-mode: difference;
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-weight: var(--font-text-weight);
+  color: #fff;
+  font-size: 14px;
+  line-height: 90%;
+  mix-blend-mode: difference;
+}
+
+dialog[open] .dialog__floppy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px 35px;
+  width: clamp(341px, 90vw, 354px);
+}
+
+.dialog__image {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+}
+
+.dialog__button {
+  border: 2px solid #000;
+  text-transform: uppercase;
+  block-size: 38px;
+}
+
+.button__text-floppy {
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (width <= 375px) {
+  .header {
+    margin-block: 100px 100px;
+    padding-block: 120px;
+  }
+
+  .container {
+    inline-size: 100%;
+  }
+
+  .main__card {
+    margin-bottom: 50px;
+  }
+
+  .main__card-content-text {
+    padding: 25px;
+  }
+
+  .save__button {
+    flex-direction: row;
+    padding: 15px 20px;
+  }
+
+  dialog[open] {
+    width: min(90vw, 341px);
+    padding: 30px 40px;
+  }
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.dark-filter {
+  filter: brightness(0.6) contrast(1.2);
 }
