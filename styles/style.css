@@ -26,6 +26,7 @@
 }
 
 .header {
+  background-color: var(--bg-color);
   margin: 100px 0;
   border: 2px solid rgba(0, 0, 0, 1);
   font-family: var(--accent-font);
@@ -75,6 +76,8 @@
 }
 
 .main__card-image-wrapper {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
   position: relative;
   inline-size: 100%;
 }
@@ -91,7 +94,7 @@
   top: 25px;
   right: 25px;
   mix-blend-mode: hard-light;
-  font-size: var(--like-font-size);
+  font-size: var(--accent-font);
   text-transform: uppercase;
   text-shadow:
     1px 1px 0 var(--label-color),
@@ -124,6 +127,7 @@
 }
 
 .button {
+  background-color: var(--bg-color);
   transition: outline 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -139,6 +143,7 @@
 }
 
 .card__like-button {
+  background-color: var(--bg-color);
   width: 130px;
   height: 38px;
   cursor: pointer;
@@ -159,9 +164,10 @@
 }
 
 .save__button {
+  background-color: var(--bg-color);
+  border: 2px solid #000;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 8px;
   padding: 17px 20px;
@@ -204,6 +210,7 @@ dialog[open] {
 }
 
 .dialog__button {
+  background-color: var(--bg-color);
   border: 2px solid #000;
   text-transform: uppercase;
   block-size: 38px;
@@ -238,7 +245,7 @@ dialog[open] {
   }
 
   .save__button {
-    flex-direction: row;
+    flex-direction: column;
     padding: 15px 20px;
   }
 
@@ -252,6 +259,34 @@ dialog[open] {
   opacity: 0;
 }
 
+.brightness-contrast-filter {
+  filter: contrast(1.2) brightness(0.6) blur(3px) grayscale(70%);
+}
+
+.filter-contrast {
+  filter: contrast(150%);
+}
+
+.filter-blur {
+  filter: blur(2px);
+}
+
+.filter-gray {
+  filter: grayscale(100%);
+}
+
+.filter-sepia {
+  filter: sepia(100%);
+}
+
+.filter-invert {
+  filter: invert(80%);
+}
+
 .dark-filter {
   filter: brightness(0.6) contrast(1.2);
+}
+
+.filter-rotate {
+  filter: hue-rotate(90deg);
 }
