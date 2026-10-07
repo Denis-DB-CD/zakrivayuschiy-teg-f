@@ -94,7 +94,8 @@
   top: 25px;
   right: 25px;
   mix-blend-mode: hard-light;
-  font-size: var(--accent-font);
+  line-height: 100%;
+  font-size: 14px; 
   text-transform: uppercase;
   text-shadow:
     1px 1px 0 var(--label-color),
